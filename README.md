@@ -36,3 +36,28 @@ Finally, if there are no empty values and the id number to be inserted doesn't e
 ```
 {"message":"New record successfully created","user":{"name":"user's name","lastname":"user's lastname","age":"user's age","profession":"user's profession","id_Number":"user's id number","address":"user's address","marital_status":"user's marital status","nationality":"user's nationality","birthday":"user's birthday date"}}
 ```
+
+### With a GET request:
+When retrieving data with GET request, it will search for the user users id number in the database table. In order to do this, the API will ask only for the user's id number, which is identified in the API with the word 'id', and will return all the information related it.
+
+If the id number doesn't exist in the database table, it will be returned this message:
+```
+{"message":"Such ID isn't registered"}
+```
+in the other hand, if the id number exista in the database table, it will be returned a message and all the user's information related to it:
+```
+{"message":"Record found","user":{"name":"user's name","lastname":"user's lastname","age":"user's age","profession":"user's profession","id_Number":"user's id number","address":"user's address","marital_status":"user's marital status","nationality":"user's nationality","birthday":"user's birthday date"}}
+```
+
+
+### With a DELETE request:
+When deleting data with DELETE request, it will search for the user users id number in the database table. In order to do this, the API will ask only for the user's id number, which is identified in the API with the word 'id', and will delete all the information related it.
+
+If the id number doesn't exist in the database table, it will be returned this message:
+```
+{"message":"The selected ID doesn't exist"}
+```
+In the other hand, if the id number exists in the database table, it will be deleted all the user's information related to it and will return a message:
+```
+{"message":"Record successfully deleted"}
+```
