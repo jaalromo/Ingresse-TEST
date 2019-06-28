@@ -44,11 +44,30 @@ If the id number doesn't exist in the database table, it will be returned this m
 ```
 {"message":"Such ID isn't registered"}
 ```
-in the other hand, if the id number exista in the database table, it will be returned a message and all the user's information related to it:
+in the other hand, if the id number exists in the database table, it will be returned a message and all the user's information related to it:
 ```
 {"message":"Record found","user":{"name":"user's name","lastname":"user's lastname","age":"user's age","profession":"user's profession","id_Number":"user's id number","address":"user's address","marital_status":"user's marital status","nationality":"user's nationality","birthday":"user's birthday date"}}
 ```
+### With a PUT request:
+When updating data with PUT request, it will search for the user's id number in the database table. In order to do this, the API will ask for the user's id number and the user's information that is trying to be changed. Inside the API, this is how the variables about the user are identified:
+- name="name"
+- lastname="lastname"
+- age="age"
+- profession="profession"
+- Id number="id"
+- address="address"
+- marital status="marital_status"
+- nationality="nationality"
+- birthday="birthday"
 
+If the id number doesn't exist in the database table, it will be returned this message:
+```
+{"message":"The selected ID doesn't exist"}
+```
+In the other hand, if the id number exists in the database table, it will be returned a message and all the user's information updated:
+```
+{"message":"Record successfully updated","user":{"name":"user's name","lastname":"user's lastname","age":"user's age","profession":"user's profession","id_Number":"user's id number","address":"user's address","marital_status":"user's marital status","nationality":"user's nationality","birthday":"user's birthday date"}}
+```
 
 ### With a DELETE request:
 When deleting data with DELETE request, it will search for the user users id number in the database table. In order to do this, the API will ask only for the user's id number, which is identified in the API with the word 'id', and will delete all the information related it.
@@ -61,3 +80,5 @@ In the other hand, if the id number exists in the database table, it will be del
 ```
 {"message":"Record successfully deleted"}
 ```
+
+
