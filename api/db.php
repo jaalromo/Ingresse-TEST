@@ -18,7 +18,7 @@ error_reporting(0);
 	//function to check whether an inserted ID already exsist in the DATABASE
 	function checking($id,$connection){ //$id=ID to be checked, $connection=variable with the created DATABASE connection
 		$sql = "SELECT * FROM users where id=".$id."";
-		$result = $conenction->query($sql);
+		$result = $connection->query($sql);
 		return $result->num_rows > 0;
 	}
 
