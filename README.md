@@ -25,14 +25,14 @@ When sending data with a POST request, it will add a new user to the database. I
 - birthday="birthday"
 
 After the request is made, it will check that none of these values is empty, and in case there is an empty value it will return:
-´´´
+```
 {"message":"empty values are not allowed"}
-´´´
+```
 If there are no empty values but the id number to be inserted already exist in the database table, it will be returned:
-´´´
+```
 {"message":"A record with this ID already exists"}
-´´´
+```
 Finally, if there are no empty values and the id number to be inserted doesn't exist in the database table, it will be returned a message and all the user's information that has just been inserted in the database
-´´´
+```
 {"message":"New record successfully created","user":{"name":"user's name","lastname":"user's lastname","age":"user's age","profession":"user's profession","id_Number":"user's id number","address":"user's address","marital_status":"user's marital status","nationality":"user's nationality","birthday":"user's birthday date"}}
-´´´
+```
