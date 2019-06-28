@@ -14,39 +14,88 @@
 					data:$("form").serialize(),
 					method: "POST",
 					success: (response)=>{
-						console.log(response);
 						var response=JSON.parse(response);
-						console.log(response.message);
+						if(response.hasOwnProperty('user')) {
+							window.alert(response.message+" with the values shown below:\n"+
+										"name: "+response.user.name+"\n"+
+										"lastname: "+response.user.lastname+"\n"+
+										"id number: "+response.user.id_Number+"\n"+
+										"age: "+response.user.age+"\n"+
+										"birthday: "+response.user.birthday+"\n"+
+										"profession: "+response.user.profession+"\n"+
+										"marrital status: "+response.user.marital_status+"\n"+
+										"nationality: "+response.user.nationality+"\n"+
+										"address: "+response.user.address+"\n"
+										);
+						}else{
+							window.alert(response.message)
+						}
 					}
 				});
 			});
 		});
 	</script>
+	<style type="text/css">
+		body{
+			background-color: rgba(20,206,110,0.7);
+		}
+		label{
+			font-weight: bold;
+		}
+	</style>
 </head>
 
 <body>
+	<h1 style="text-align: center;">User data registration</h1>
 	<div class="container">
 		<form>
-			<label>Name</label>
-			<input type="text" name="name"><br>
-			<label>Lastname</label>
-			<input type="text" name="lastname"><br>
-			<label>Age</label>
-			<input type="number" name="age"><br>
-			<label>Profession</label>
-			<input type="text" name="profession"><br>
-			<label>ID number</label>
-			<input type="text" name="id"><br>
-			<label>Address</label>
-			<input type="text" name="address"><br>
-			<label>Marrital Status</label>
-			<input type="text" name="m_status"><br>
-			<label>Nationality</label>
-			<input type="text" name="nationality"><br>
-			<label>Birthday</label>
-			<input type="date" name="birthday"><br>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label>Name</label>
+					<input type="text" name="name" class="form-control">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Lastname</label>
+					<input type="text" name="lastname" class="form-control">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label>ID number</label>
+					<input type="number" name="id" class="form-control">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Age</label>
+					<input type="number" name="age" class="form-control">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Birthday</label>
+					<input type="date" name="birthday" class="form-control">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label>Profession</label>
+					<input type="text" name="profession" class="form-control">
+				</div>
+				<div class="form-group col-md-4">
+				<label>Marrital Status</label>
+					<select name="m_status" class="form-control">
+        				<option value="Single">Single</option>
+       					<option value="married">Married</option>
+      				</select>
+      			</div>
+      			<div class="form-group col-md-4">
+					<label>Nationality</label>
+					<input type="text" name="nationality" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Address</label>
+				<input type="text" name="address" class="form-control">
+			</div>
 		</form>
-		<button id="submit">Submit</button>
+		<button id="submit" class="btn btn-primary">Submit</button>
 	</div>
 </body>
 
